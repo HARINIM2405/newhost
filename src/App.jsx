@@ -1,71 +1,51 @@
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+
+function Home() {
+  return <h1>Welcome to Home Page</h1>;
+}
+
+function About() {
+  return <h1>About Us</h1>;
+}
+
+function Contact() {
+  return <h1>Contact Us</h1>;
+}
 
 function App() {
   return (
-    <div className="app-container">
-      <fieldset className="transparent-box">
-        <legend className="legend-style">SLAMBOOK</legend>
-        <form className="form-style">
-          <div className="row">
-            <label>
-              Name: <input type="text" name="name" />
-            </label>
-            <label>
-              Nickname: <input type="text" name="nickname" />
-            </label>
+    <Router>
+      <div className="App">
+        <header className="header">
+          <div className="logo-section">
+            {/* Logo and name with reload and navigation functionality */}
+            <Link to="/" className="logo-text" onClick={() => window.location.reload()}>
+              <img src="logo.png" alt="Logo" className="logo" />
+              Lego
+            </Link>
           </div>
-          <div className="row">
-            <label>
-              Date of Birth: <input type="date" name="dob" />
-            </label>
-            <label>
-              Call me on: <input type="text" name="callme" />
-            </label>
-          </div>
-          <div className="row">
-            <label>
-              Gender:
-              <input type="checkbox" name="gender" value="male" /> Male
-              <input type="checkbox" name="gender" value="female" /> Female
-            </label>
-          </div>
-          <div className="row">
-            <label>
-              Address: <textarea name="address" rows="3" cols="40"></textarea>
-            </label>
-          </div>
-          <div className="row">
-            <label>
-              Memories: <textarea name="memories" rows="4" cols="40"></textarea>
-            </label>
-          </div>
-          <div className="row">
-            <label>
-              Favorite Actor:
-              <input type="checkbox" name="actor" value="vijay" /> Vijay
-              <input type="checkbox" name="actor" value="ajith" /> Ajith
-              <input type="checkbox" name="actor" value="surya" /> Surya
-              <input type="checkbox" name="actor" value="dhanush" /> Dhanush
-            </label>
-          </div>
-          <div className="row">
-            <label>
-              School:
-              <select name="school">
-                <option value="school1">-NONE-</option>
-                <option value="school1">THE BVB SCHOOL</option>
-                <option value="school2">CS ACADEMY</option>
-                <option value="school3">CHAITANYA</option>
-                <option value="school4">TIPS</option>
-              </select>
-            </label>
-          </div>
-          <div className="row">
-            <button type="submit" className="submit-button">Submit</button>
-          </div>
-        </form>
-      </fieldset>
-    </div>
+          <nav className="nav">
+            <ul className="nav-links">
+              <li><Link to="/">HOME</Link></li>
+              <li><Link to="/about">ABOUT</Link></li>
+              <li><Link to="/contact">CONTACT</Link></li>
+            </ul>
+          </nav>
+        </header>
+        <main className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <footer className="footer">
+          <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </footer>
+      </div>
+    </Router>
   );
 }
 
