@@ -1,5 +1,24 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Details from "./Details";
 
-import React, { useState, createContext } from "react";
+const App = () => {
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/details/:id" element={<Details />} />
+            </Routes>
+        </Router>
+    );
+};
+
+export default App;
+//app. Jsx
+
+
+/*import React, { useState, createContext } from "react";
 import Hen from "./Hen";
 import "./App.css";
 
@@ -27,4 +46,4 @@ function App() {
     </nameContext.Provider>
   );
 }
-export default App;
+export default App;*/
