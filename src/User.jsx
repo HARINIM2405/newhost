@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./user.css";
 
 const User = () => {
   const [users, setUsers] = useState([]);
@@ -33,9 +34,9 @@ const User = () => {
   };
 
   return (
-    <div>
-      <Link to="/createuser">Create User</Link>
-      <table border={1} style={{ width: "100%", borderCollapse: "collapse" }}>
+    <div className="user-container">
+      <Link to="/createuser" className="create-user-btn">Create User</Link>
+      <table className="user-table">
         <thead>
           <tr>
             <th>Name</th>
@@ -46,15 +47,20 @@ const User = () => {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user._id}>
+            <tr key={user._id} className="user-row">
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.address}</td>
               <td>
-                <Link to={`/update/${user._id}`} style={{ marginRight: "10px" }}>
+                <Link to={`/update/${user._id}`} className="update-btn">
                   Update
                 </Link>
-                <button onClick={() => deleteUser(user._id)}>Delete</button>
+                <button 
+                  onClick={() => deleteUser(user._id)} 
+                  className="delete-btn"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
