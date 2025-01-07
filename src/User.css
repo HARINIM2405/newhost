@@ -7,12 +7,14 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 body {
-  background: url('./bg.png') ;
+  background-color: rgb(22, 224, 187);
   background-size: cover;
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
 .create-user-btn {
   display: inline-block;
   padding: 10px 20px;
@@ -62,7 +64,7 @@ body {
 }
 
 .update-btn,
-.delete1-btn {
+.delete-btn {
   padding: 8px 14px;
   margin: 0 5px;
   font-size: 14px;
@@ -86,6 +88,6 @@ body {
   background-color: #dc3545;
 }
 
-.delet1-btn:hover {
+.delete-btn:hover {
   background-color: #b02a37;
 }
